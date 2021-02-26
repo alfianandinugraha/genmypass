@@ -7,7 +7,105 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
-    <button class="btn btn-primary">Click me</button>
+    <div class="container mt-3 mb-5 mb-md-0">
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3 mb-md-0 d-flex flex-column">
+          <h3 class="mb-3">Gen My Pass</h3>
+          <form id="form" class="d-flex flex-column h-100">
+            <div class="form-item">
+              <label for="input-length"
+                >Password Length (min: 4, max: 128)</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                name="inputLength"
+                id="input-length"
+                value="4"
+                min="4"
+                max="128"
+              />
+            </div>
+            <div class="d-flex flex-wrap form-item">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="check-upper"
+                  name="variant"
+                  value="upper"
+                  checked
+                />
+                <label class="form-check-label" for="check-upper">Upper</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="check-lower"
+                  name="variant"
+                  value="lower"
+                />
+                <label class="form-check-label" for="check-lower">Lower</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="check-number"
+                  name="variant"
+                  value="number"
+                />
+                <label class="form-check-label" for="check-number"
+                  >Number</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="check-special-char"
+                  name="variant"
+                  value="special-char"
+                />
+                <label class="form-check-label" for="check-special-char"
+                  >Special Char</label
+                >
+              </div>
+            </div>
+            <div class="form-item">
+              <label for="input-quantity">Password Quantity</label>
+              <input
+                type="number"
+                class="form-control"
+                name="inputQuantity"
+                id="input-quantity"
+                value="1"
+                min="1"
+              />
+            </div>
+            <div class="mt-auto">
+              <button class="btn btn-primary w-100" type="submit">
+                Generate my password
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-12 col-md-6 d-flex flex-column">
+          <label for="result-area">Result</label>
+          <textarea
+            class="form-control"
+            name=""
+            id="result-area"
+            rows="10"
+          ></textarea>
+          <div class="d-flex mt-3 ml-auto">
+            <button class="btn btn-outline-primary mr-2">Copy</button>
+            <button class="btn btn-outline-success">Download as .txt</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script
       type="text/javascript"
       src="<%= htmlWebpackPlugin.files.js %>"
