@@ -10,6 +10,8 @@ const form = document.getElementById("form")
  * @param {Event} e
  */
 function formSubmitHandler(e) {
+  e.preventDefault()
+
   /** @type {string[]} */
   const selectedVariants = Array.from(e.target.variant).filter(el => el.checked).map(el => el.value)
   const checkSelectedVariants = isValidVariants(selectedVariants)
