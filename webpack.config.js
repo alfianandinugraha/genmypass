@@ -18,6 +18,12 @@ const webpackConfig = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ title: "Genmypass", inject: false, template: "src/index.html" })
   ],
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
+    }]
+  },
   stats: "errors-only"
 }
 
