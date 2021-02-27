@@ -5,3 +5,12 @@
 .form-item {
   margin-bottom: 1rem;
 }
+
+@media (min-width: 768px) {
+  footer.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: inherit;
+  }
+}

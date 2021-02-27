@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
-    <div class="container mt-3 mb-5 mb-md-0">
-      <div class="row">
+  <body style="height: 100vh">
+    <div class="container pt-3 pt-md-0 h-100 d-flex flex-column">
+      <div class="row my-auto">
         <div class="col-12 col-md-6 mb-3 mb-md-0 d-flex flex-column">
           <h3 class="mb-3">Gen My Pass</h3>
           <form id="form" class="d-flex flex-column h-100">
@@ -124,6 +124,24 @@
           </div>
         </div>
       </div>
+      <footer class="row mt-5 footer">
+        <div class="col-12">
+          <p class="text-center">
+            &lt;/&gt; by
+            <a
+              href="https://www.linkedin.com/in/alfianandinugraha/"
+              target="__blank"
+              >Alfian Andi Nugraha</a
+            >
+            | Contribute
+            <a
+              href="https://github.com/alfianandinugraha/genmypass"
+              target="__blank"
+              >GitHub</a
+            >
+          </p>
+        </div>
+      </footer>
     </div>
     <script
       type="text/javascript"
