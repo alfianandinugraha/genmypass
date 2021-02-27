@@ -9,6 +9,7 @@ import generatePassword from "./utils/generatePassword"
 const form = document.getElementById("form")
 const downloadAsTxtElement = document.getElementById("download-as-txt")
 const downloadAsCsvElement = document.getElementById("download-as-csv")
+const copyElement = document.getElementById('copy')
 
 /**
  * @param {Event} e
@@ -63,6 +64,11 @@ function downloadAsCsvHandler() {
   downloadFile(resultAreaElement.value, "text/csv", FILENAME)
 }
 
+function copyPasswordHandler() {
+  console.log('copy')
+}
+
 downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
 downloadAsCsvElement.addEventListener('click', downloadAsCsvHandler)
+copyElement.addEventListener('click', copyPasswordHandler)
 form.addEventListener("submit", formSubmitHandler)
