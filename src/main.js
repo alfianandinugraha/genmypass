@@ -12,6 +12,22 @@ const downloadAsCsvElement = document.getElementById("download-as-csv")
 const copyElement = document.getElementById('copy')
 
 /**
+ * @param {string} message
+ * @param {"danger"|"success"} type
+ */
+function messageResultButtonHandler(message, type) {
+  const messageResultButtomElement = document.getElementById("message-result-button")
+  messageResultButtomElement.innerHTML = message
+  messageResultButtomElement
+    .className
+    .split(" ")
+    .forEach((item) => {
+      /^text-.*$/.test(item) && messageResultButtomElement.classList.remove(item)
+    })
+  messageResultButtomElement.classList.add(`text-${type}`)
+}
+
+/**
  * @param {Event} e
  */
 function formSubmitHandler(e) {
@@ -66,7 +82,12 @@ function downloadAsCsvHandler() {
 
 function copyPasswordHandler() {
   const resultAreaElement = document.getElementById("result-area")
-  navigator.clipboard.writeText(resultAreaElement.value).then(() => console.log('copied'))
+  if (!resultAreaElement.value) return messageResultButtonHandler("Result is empty", "danger")
+  navigator
+    .clipboard
+    .writeText(resultAreaElement.value)
+    .then(() => messageResultButtonHandler("Copied !", "success"))
+    .catch((err) => messageResultButtonHandler(err.getMessage(), "danger"))
 }
 
 downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
