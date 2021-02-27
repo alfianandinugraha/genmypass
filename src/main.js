@@ -65,7 +65,8 @@ function downloadAsCsvHandler() {
 }
 
 function copyPasswordHandler() {
-  console.log('copy')
+  const resultAreaElement = document.getElementById("result-area")
+  navigator.clipboard.writeText(resultAreaElement.value).then(() => console.log('copied'))
 }
 
 downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
