@@ -77,11 +77,18 @@ function downloadAsCsvHandler() {
 
 function copyPasswordHandler() {
   if (!resultAreaElement.value) return messageResultButtonHandler("Result is empty", "danger")
-  navigator
-    .clipboard
-    .writeText(resultAreaElement.value)
-    .then(() => messageResultButtonHandler("Copied !", "success"))
-    .catch((err) => messageResultButtonHandler(err.getMessage(), "danger"))
+
+  try {
+    navigator
+      .clipboard
+      .writeText(resultAreaElement.value)
+      .then(() => messageResultButtonHandler("Copied !", "success"))
+      .catch((err) => {
+        messageResultButtonHandler("Something wrong, please use HTTPS or modern browser", "danger")
+      })
+  } catch (err) {
+    messageResultButtonHandler("Something wrong, please use HTTPS or modern browser", "danger")
+  }
 }
 
 downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
