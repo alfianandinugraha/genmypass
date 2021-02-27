@@ -6,6 +6,7 @@ import { isValidPasswordLength, isValidVariants, isValidPasswordQuantity } from 
 import generatePassword from "./utils/generatePassword"
 
 const form = document.getElementById("form")
+const downloadAsTxtElement = document.getElementById("download-as-txt")
 
 /**
  * @param {Event} e
@@ -46,4 +47,12 @@ function formSubmitHandler(e) {
   resultArea.value = randomPasswords.join("\n")
 }
 
+/**
+ * @param {Event} e
+ */
+function downloadAsTxtHandler(e) {
+  console.log("Download starting")
+}
+
+downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
 form.addEventListener("submit", formSubmitHandler)
