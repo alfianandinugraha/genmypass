@@ -65,6 +65,7 @@ function formSubmitHandler(e) {
 
   const resultArea = document.getElementById('result-area')
   resultArea.value = randomPasswords.join("\n")
+  messageResultButtonHandler("", "success")
 }
 
 function downloadAsTxtHandler() {
