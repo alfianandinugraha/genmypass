@@ -6,6 +6,11 @@
   margin-bottom: 1rem;
 }
 
+label,
+.form-check-input {
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   footer.footer {
     position: absolute;
