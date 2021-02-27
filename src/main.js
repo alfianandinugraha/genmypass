@@ -3,6 +3,7 @@ import "./style/root.css"
 import "./types"
 
 import { isValidPasswordLength, isValidVariants, isValidPasswordQuantity } from "./utils/validate"
+import generatePassword from "./utils/generatePassword"
 
 const form = document.getElementById("form")
 
@@ -34,7 +35,15 @@ function formSubmitHandler(e) {
     passwordQuantity
   }
 
-  alert(JSON.stringify(userInput, undefined, 2))
+  /** @type {string[]} */
+  const randomPasswords = []
+
+  for (let i = 0; i < userInput.passwordQuantity; i++) {
+    randomPasswords.push(generatePassword(userInput))
+  }
+
+  const resultArea = document.getElementById('result-area')
+  resultArea.value = randomPasswords.join("\n")
 }
 
 form.addEventListener("submit", formSubmitHandler)
