@@ -9,6 +9,7 @@ import generatePassword from "./utils/generatePassword"
 const form = document.getElementById("form")
 const downloadAsTxtElement = document.getElementById("download-as-txt")
 const downloadAsCsvElement = document.getElementById("download-as-csv")
+const resultAreaElement = document.getElementById("result-area")
 const copyElement = document.getElementById('copy')
 
 /**
@@ -67,21 +68,14 @@ function formSubmitHandler(e) {
 }
 
 function downloadAsTxtHandler() {
-  const resultAreaElement = document.getElementById("result-area")
-  const FILENAME = "gen-my-pass.txt"
-
-  downloadFile(resultAreaElement.value, "text/plain", FILENAME)
+  downloadFile(resultAreaElement.value, "text/plain", "gen-my-pass.txt")
 }
 
 function downloadAsCsvHandler() {
-  const resultAreaElement = document.getElementById("result-area")
-  const FILENAME = "gen-my-pass.csv"
-
-  downloadFile(resultAreaElement.value, "text/csv", FILENAME)
+  downloadFile(resultAreaElement.value, "text/csv", "gen-my-pass.csv")
 }
 
 function copyPasswordHandler() {
-  const resultAreaElement = document.getElementById("result-area")
   if (!resultAreaElement.value) return messageResultButtonHandler("Result is empty", "danger")
   navigator
     .clipboard
