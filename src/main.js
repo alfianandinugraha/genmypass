@@ -3,6 +3,7 @@ import "./style/root.css"
 import "./types"
 
 import { isValidPasswordLength, isValidVariants, isValidPasswordQuantity } from "./utils/validate"
+import downloadFile from './utils/downloadFile'
 import generatePassword from "./utils/generatePassword"
 
 const form = document.getElementById("form")
@@ -47,11 +48,11 @@ function formSubmitHandler(e) {
   resultArea.value = randomPasswords.join("\n")
 }
 
-/**
- * @param {Event} e
- */
-function downloadAsTxtHandler(e) {
-  console.log("Download starting")
+function downloadAsTxtHandler() {
+  const resultAreaElement = document.getElementById("result-area")
+  const FILENAME = "gen-my-pass.txt"
+
+  downloadFile(resultAreaElement.value, "text/plain", FILENAME)
 }
 
 downloadAsTxtElement.addEventListener('click', downloadAsTxtHandler)
