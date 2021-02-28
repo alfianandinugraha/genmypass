@@ -7,6 +7,7 @@ import {
   numberArr,
   specialCharArr
 } from "../initial/defaultCharArr";
+import shuffleArray from './shuffleArray'
 
 /**
  * @param {userInput} userInput
@@ -53,7 +54,7 @@ function generatePassword(userInput) {
     }
   });
 
-  return result.join("")
+  return shuffleArray(result).join("")
 }
 
 export default generatePassword
